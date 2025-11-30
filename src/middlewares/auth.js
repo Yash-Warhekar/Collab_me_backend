@@ -9,7 +9,7 @@ const userAuth = async function (req,res,next){
    }
 
    // validate this token
-   const decodedData=await jwt.verify(token,"andupandugandu!@#$123")  //gives object
+   const decodedData=await jwt.verify(token,process.env.JWT_SECRET)  //gives object
    const {_id} =decodedData //extract our _id/data
 
    //find user in db by _id
